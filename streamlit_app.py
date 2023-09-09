@@ -5,10 +5,6 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import numpy as np  # 추가
 
-plt.style.use('bmh')  # ggplot 스타일 사용
-plt.rc('font', family='NanumGothic')  # For Windows
-
-
 """
 # 국세 진도율 대쉬보드에 오신 것을 환영합니다. 
 
@@ -16,47 +12,15 @@ plt.rc('font', family='NanumGothic')  # For Windows
 
 """
 
+plt.style.use('bmh')  # ggplot 스타일 사용
+plt.rc('font', family='NanumGothic')  # For Windows
 
-import pandas as pd
-import requests
-import xml.etree.ElementTree as ET
 
-url = 'https://openapi.openfiscaldata.go.kr/IncomeTax'
-key = ""
-
-years = [str(year) for year in range(2014, 2024)]
-
-df_list = []
-
-for year in years:
-    params = {
-        'Type': 'xml',
-        'pIndex': '1',
-        'pSize': '100',
-        'OJ_YY': year,
-        'Key': key
-    }
-
-    response = requests.get(url, params=params)
-    root = ET.fromstring(response.text)
-
-    for item in root.findall('.//row'):
-        data = {elem.tag: elem.text for elem in item}
-        df_list.append(data)
-
-df = pd.DataFrame(df_list)
-
-# Remove white spaces in the "ISMOK_NM" column
-df['ISMOK_NM'] = df['ISMOK_NM'].str.strip()
-
-# Export DataFrame to Excel
-output_file = "income_data.xlsx"
-df.to_excel(output_file, index=False)
 
 # Load the data
 @st.cache_data
 def load_data():
-    return pd.read_excel('income_data.xlsx')
+    return pd.read_excel('https://raw.githubusercontent.com/seokjinwoo/streamlit-example/master/income_data.xlsx')
 
 df = load_data()
 
@@ -96,6 +60,7 @@ ax.set_ylabel('세수 진도율(%)')
 ax.set_title(f'{selected_cat}에 대한 세수진도율')
 ax.legend()
 st.pyplot(fig)
+
 
 
 
