@@ -3,17 +3,19 @@
 import streamlit as st
 import pandas as pd
 import matplotlib.pyplot as plt
+import matplotlib.font_manager as fm
 import numpy as np  # 추가
 
-"""
-# 국세 진도율 대쉬보드에 오신 것을 환영합니다. 
-
-한국재정정보원의 국세 진도율 자료를 이용하여 2023년의 국세 진도율을 시각화 하여 보여주고 있습니다. 
-
+""" 
+재정정보원 자료를 이용한 국세진도율입니다. 
 """
 
 plt.style.use('bmh')  # ggplot 스타일 사용
-plt.rc('font', family='NanumGothic')  # For Windows
+
+# matplotlib 기본 설정 변경
+plt.rcParams['font.family'] = 'sans-serif'
+plt.rcParams['font.sans-serif'] = ['Malgun Gothic']  # 'Malgun Gothic' 대신 다른 한글 지원 폰트를 사용할 수 있습니다.
+plt.rcParams['axes.unicode_minus'] = False  # 마이너스 기호 깨짐 방지
 
 
 
@@ -60,8 +62,3 @@ ax.set_ylabel('세수 진도율(%)')
 ax.set_title(f'{selected_cat}에 대한 세수진도율')
 ax.legend()
 st.pyplot(fig)
-
-
-
-
-
