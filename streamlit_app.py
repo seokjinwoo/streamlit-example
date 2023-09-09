@@ -36,7 +36,7 @@ df = df.rename(columns={
 })
 
 # Title
-st.title('국세 진도율에 대한 진도율')
+st.title('국세 진도율에 대한 산포도')
 
 # Sidebar for category selection
 selected_cat = st.sidebar.selectbox("Taxes:", df['cat'].unique())
