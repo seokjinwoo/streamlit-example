@@ -22,7 +22,7 @@ import requests
 import xml.etree.ElementTree as ET
 
 url = 'https://openapi.openfiscaldata.go.kr/IncomeTax'
-key = "GRAEL1001406420230806211436RAGED"
+key = ""
 
 years = [str(year) for year in range(2014, 2024)]
 
