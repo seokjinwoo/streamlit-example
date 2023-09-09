@@ -2,6 +2,3 @@ streamlit
 pandas
 numpy
 matplotlib
-openpyxl
-requests
-xml.etree.ElementTree
