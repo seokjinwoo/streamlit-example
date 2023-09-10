@@ -10,6 +10,8 @@ import numpy as np  # 추가
 재정정보원 자료를 이용한 국세진도율입니다. 
 총국세만 1-12월까지 데이터가 있고, 개별 세목은 1-11월까지만 데이터가 존재합니다. 
 데이터는 재정정보원 데이터가 업데이트 되면 같이 됩니다. 대략, 기재부 발표보다 1달 정도 후행합니다. 
+
+국세 진도율이 매우 낮습니다. 
 """
 
 plt.style.use('bmh')  # ggplot 스타일 사용
@@ -39,7 +41,7 @@ df = df.rename(columns={
 st.title('국세 진도율에 대한 산포도')
 
 # Sidebar for category selection
-selected_cat = st.sidebar.selectbox("Taxes:", df['cat'].unique())
+selected_cat = st.selectbox("세목:", df['cat'].unique())
 
 # Filter data based on selected category
 filtered_data = df[df['cat'] == selected_cat]
