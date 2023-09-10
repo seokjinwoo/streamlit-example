@@ -14,10 +14,6 @@ import numpy as np  # 추가
 
 plt.style.use('bmh')  # ggplot 스타일 사용
 
-# 나눔 폰트로 한글 설정
-plt.rcParams['font.family'] = 'NanumGothic'
-
-
 
 # Load the data
 @st.cache_data
