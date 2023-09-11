@@ -1,6 +1,4 @@
-# Welcome to Streamlit!
+# 시민을 위한 재정정보 시각화 대쉬보드
 
-Edit `/streamlit_app.py` to customize this app to your heart's desire. :heart:
+이 사이트는 시민의 관점에서 필요한 재정 정보를 시각화 하여 보여주는 대쉬보드를 구축하기 위한 사이트입니다.
 
-If you have any questions, checkout our [documentation](https://docs.streamlit.io) and [community
-forums](https://discuss.streamlit.io).
