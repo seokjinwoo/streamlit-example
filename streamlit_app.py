@@ -38,7 +38,7 @@ df = df.rename(columns={
 })
 
 # Sidebar for category selection
-selected_cat = st.sidebar.selectbox("국세 세목:", df['cat'].unique())
+selected_cat = st.selectbox("국세 세목:", df['cat'].unique())
 
 # Filter data based on selected category
 filtered_data = df[df['cat'] == selected_cat]
