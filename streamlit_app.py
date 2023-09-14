@@ -6,11 +6,7 @@ import matplotlib.pyplot as plt
 import matplotlib.font_manager as fm
 import numpy as np  # 추가
 
-""" 
-재정정보원 자료를 이용한 국세진도율입니다. 
-총국세만 1-12월까지 데이터가 있고, 개별 세목은 1-11월까지만 데이터가 존재합니다. 
-데이터는 재정정보원 데이터가 업데이트 되면 같이 됩니다. 대략, 기재부 발표보다 1달 정도 후행합니다. 
-"""
+
 
 plt.style.use('bmh')  # ggplot 스타일 사용
 
@@ -62,3 +58,9 @@ ax.set_xlabel('')
 ax.set_ylabel('Revenue progress rate (%)')
 ax.legend()
 st.pyplot(fig)
+
+""" 
+재정정보원 자료를 이용한 국세진도율입니다. 
+총국세만 1-12월까지 데이터가 있고, 개별 세목은 1-11월까지만 데이터가 존재합니다. 
+데이터는 재정정보원 데이터가 업데이트 되면 같이 됩니다. 대략, 기재부 발표보다 1달 정도 후행합니다. 
+"""
