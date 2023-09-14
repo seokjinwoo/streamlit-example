@@ -3,28 +3,13 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import numpy as np
 
-# Custom CSS for styling
-st.markdown("""
-<style>
-    .reportview-container {
-        background-color: #f0f2f6;
-    }
-    .big-font {
-        font-size:50px !important;
-        color: #333;
-    }
-    .small-font {
-        font-size:16px !important;
-        color: #666;
-    }
-    h1 {
-        color: #333;
-    }
-</style>
-""", unsafe_allow_html=True)
-
-st.markdown('<div class="big-font">국세 진도율에 대한 산포도</div>', unsafe_allow_html=True)
-st.markdown('중요한경제문제연구소', unsafe_allow_html=True)
+# Set page configuration
+st.set_page_config(
+    page_title="국세 진도율 산포도",
+    page_icon="📊",
+    layout="wide",
+    initial_sidebar_state="collapsed",
+)
 
 # Load the data
 @st.cache
@@ -41,6 +26,10 @@ df = df.rename(columns={
     'ISMOK_NM': 'cat',
     'OUT_RT': 'pro'
 })
+
+# Title and Subtitle
+st.title('국세 진도율에 대한 산포도')
+st.subheader('명지대 경제학과')
 
 # Category selection below the title
 selected_cat = st.selectbox("세목 선택:", df['cat'].unique())
@@ -64,12 +53,15 @@ ax.plot(np.array(avg_pro_before_2023.index), np.array(avg_pro_before_2023.values
 # Setting x-axis labels with abbreviated month names
 months_abbrev = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
 ax.set_xticks(range(1, 13))
-ax.set_xticklabels(months_abbrev, rotation=45, color='#555')
-ax.set_yticklabels(ax.get_yticks(), color='#555')
+ax.set_xticklabels(months_abbrev, rotation=45)
 
 ax.set_xlabel('')
-ax.set_ylabel('Revenue progress rate (%)', color='#555')
+ax.set_ylabel('Revenue progress rate (%)')
 ax.legend()
 st.pyplot(fig)
 
-st.markdown('<div class="small-font">재정정보원 자료를 이용한 국세진도율입니다. 총국세만 1-12월까지 데이터가 있고, 개별 세목은 1-11월까지만 데이터가 존재합니다. 데이터는 재정정보원 데이터가 업데이트 되면 같이 됩니다. 대략, 기재부 발표보다 1달 정도 후행합니다.</div>', unsafe_allow_html=True)
+st.markdown(""" 
+재정정보원 자료를 이용한 국세진도율입니다. 
+총국세만 1-12월까지 데이터가 있고, 개별 세목은 1-11월까지만 데이터가 존재합니다. 
+데이터는 재정정보원 데이터가 업데이트 되면 같이 됩니다. 대략, 기재부 발표보다 1달 정도 후행합니다. 
+""")
