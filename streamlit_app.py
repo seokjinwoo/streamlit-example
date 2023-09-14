@@ -19,7 +19,7 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 st.markdown('<div class="big-font">국세 진도율에 대한 산포도</div>', unsafe_allow_html=True)
-st.markdown('명지대 경제학과', unsafe_allow_html=True)
+st.markdown('명지대 빅데이터연구소', unsafe_allow_html=True)
 
 # Load the data
 @st.cache
@@ -38,7 +38,7 @@ df = df.rename(columns={
 })
 
 # Sidebar for category selection
-selected_cat = st.sidebar.selectbox("세목:", df['cat'].unique())
+selected_cat = st.sidebar.selectbox("국세 세목:", df['cat'].unique())
 
 # Filter data based on selected category
 filtered_data = df[df['cat'] == selected_cat]
