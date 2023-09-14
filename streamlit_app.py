@@ -29,7 +29,7 @@ df = df.rename(columns={
 
 # Title and Subtitle
 st.title('국세 진도율에 대한 산포도')
-st.subheader('명지대 경제학과')
+st.subheader('중요한경제문제연구소')
 
 # Category selection below the title
 selected_cat = st.selectbox("세목 선택:", df['cat'].unique())
